@@ -41,9 +41,30 @@
 
             <div id="tab-wrap">
               <div class="tab-titles">
-                <p class="tab-links active-link">Skills</p>
-                <p class="tab-links">Experience</p>
-                <p class="tab-links">Education</p>
+                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                <p class="tab-links" onclick="opentab('education')">Education</p>
+              </div>
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                  <li><span>Web Development</span><br>Web App Development</li>
+                  <li><span>App Development</span><br>Building Android/iOS Apps</li>
+                </ul>
+              </div>
+              <div class="tab-contents" id="experience">
+                <ul>
+                  <li><span>2022</span><br>UI/UX Design Training</li>
+                  <li><span>2021</span><br>Team lead at AppStroke LLC.</li>
+                  <li><span>2020</span><br>UI/UX Design Executive at Park Digital Ltd.</li>
+                </ul>
+              </div>
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li><span>2022</span><br>Udemy Javascript</li>
+                  <li><span>2020</span><br>Rosettastone</li>
+                  <li><span>2016</span><br>University of Santo Tomas</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -53,6 +74,23 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      function opentab(tabname){
+        for(tablink of tablinks){
+          tablink.classlist.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+          tabcontent.classlist.remove("active-tab");
+        }
+        event.currentTarget.classlist.add("active-link");
+        document.getElementbyId(tabname).classList.add("active-tab");
+      }
+      
     </script>
   </body>
 </html>
